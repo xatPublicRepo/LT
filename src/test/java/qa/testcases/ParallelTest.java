@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeTest;
@@ -22,15 +23,15 @@ public class ParallelTest {
     By price = By.cssSelector(".a-price.aok-align-center.centralizedApexPricePriceToPayMargin  .a-price-fraction");
 
     WebDriver driver;
-    ChromeOptions browserOptions = new ChromeOptions();
-
+    ChromeOptions chromeOptions = new ChromeOptions();
+    FirefoxOptions ffOptions = new FirefoxOptions();
     String iphonePrice;
 
     @BeforeTest
     public void setUp() {
 
-        browserOptions.setPlatformName("Windows 10");
-        browserOptions.setBrowserVersion("118.0");
+        chromeOptions.setPlatformName("Windows 10");
+        chromeOptions.setBrowserVersion("118.0");
         HashMap<String, Object> ltOptions = new HashMap<>();
         ltOptions.put("username", "rastogiakshat00");
         ltOptions.put("accessKey", "MBGdYVgHVm7dr6ce5iP6hwRzMfsYoqtZsNlD20lJwhcP4ofIcX");
@@ -40,7 +41,7 @@ public class ParallelTest {
         ltOptions.put("console", "error");
         ltOptions.put("selenium_version", "4.0.0");
         ltOptions.put("w3c", true);
-        browserOptions.setCapability("LT:Options", ltOptions);
+        chromeOptions.setCapability("LT:Options", ltOptions);
 
     }
 
@@ -48,7 +49,7 @@ public class ParallelTest {
     public void testChrome() {
         System.out.println("The thread ID for Chrome is "+ Thread.currentThread().getId());
         WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver();
+        driver = new ChromeDriver(chromeOptions);
 //        driver.get("https://www.lambdatest.com/");
 //        driver.manage().window().maximize();
 //        Assert.assertEquals(driver.getTitle(), "Next-Generation");
@@ -66,7 +67,7 @@ public class ParallelTest {
     public void testFirefox() {
         System.out.println("The thread ID for Firefox is "+ Thread.currentThread().getId());
         WebDriverManager.firefoxdriver().setup();
-        driver = new FirefoxDriver();
+        driver = new FirefoxDriver(ffOptions);
 //        driver.get("https://www.lambdatest.com/");
 //        driver.manage().window().maximize();
 //        Assert.assertEquals(driver.getTitle(), "Next-Generation");
