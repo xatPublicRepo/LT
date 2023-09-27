@@ -43,6 +43,19 @@ public class ParallelTest {
         ltOptions.put("w3c", true);
         chromeOptions.setCapability("LT:Options", ltOptions);
 
+        ffOptions.setPlatformName("Windows 10");
+        ffOptions.setBrowserVersion("118.0");
+        HashMap<String, Object> ltOptions2 = new HashMap<>();
+        ltOptions.put("username", "rastogiakshat00");
+        ltOptions.put("accessKey", "MBGdYVgHVm7dr6ce5iP6hwRzMfsYoqtZsNlD20lJwhcP4ofIcX");
+        ltOptions.put("visual", true);
+        ltOptions.put("video", true);
+        ltOptions.put("project", "LT-Parallel Tests");
+        ltOptions.put("console", "error");
+        ltOptions.put("selenium_version", "4.0.0");
+        ltOptions.put("w3c", true);
+        ffOptions.setCapability("LT:Options", ltOptions2);
+
     }
 
     @Test(priority = 1)
