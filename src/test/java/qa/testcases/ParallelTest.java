@@ -11,7 +11,6 @@ import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
-import java.sql.Driver;
 import java.util.HashMap;
 
 public class ParallelTest {
