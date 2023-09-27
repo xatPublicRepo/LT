@@ -25,14 +25,12 @@ public class ParallelTest {
     WebDriver driver;
     ChromeOptions chromeOptions = new ChromeOptions();
     FirefoxOptions ffOptions = new FirefoxOptions();
+    HashMap<String, Object> ltOptions = new HashMap<>();
     String iphonePrice;
 
     @BeforeTest
     public void setUp() {
 
-        chromeOptions.setPlatformName("Windows 10");
-        chromeOptions.setBrowserVersion("118.0");
-        HashMap<String, Object> ltOptions = new HashMap<>();
         ltOptions.put("username", "rastogiakshat00");
         ltOptions.put("accessKey", "MBGdYVgHVm7dr6ce5iP6hwRzMfsYoqtZsNlD20lJwhcP4ofIcX");
         ltOptions.put("visual", true);
@@ -41,20 +39,14 @@ public class ParallelTest {
         ltOptions.put("console", "error");
         ltOptions.put("selenium_version", "4.0.0");
         ltOptions.put("w3c", true);
+
+        chromeOptions.setPlatformName("Windows 10");
+        chromeOptions.setBrowserVersion("118.0");
         chromeOptions.setCapability("LT:Options", ltOptions);
 
         ffOptions.setPlatformName("Windows 10");
         ffOptions.setBrowserVersion("118.0");
-        HashMap<String, Object> ltOptions2 = new HashMap<>();
-        ltOptions.put("username", "rastogiakshat00");
-        ltOptions.put("accessKey", "MBGdYVgHVm7dr6ce5iP6hwRzMfsYoqtZsNlD20lJwhcP4ofIcX");
-        ltOptions.put("visual", true);
-        ltOptions.put("video", true);
-        ltOptions.put("project", "LT-Parallel Tests");
-        ltOptions.put("console", "error");
-        ltOptions.put("selenium_version", "4.0.0");
-        ltOptions.put("w3c", true);
-        ffOptions.setCapability("LT:Options", ltOptions2);
+        ffOptions.setCapability("LT:Options", ltOptions);
 
     }
 
