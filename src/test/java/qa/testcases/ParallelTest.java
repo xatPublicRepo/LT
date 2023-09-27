@@ -15,17 +15,20 @@ import java.util.HashMap;
 
 public class ParallelTest {
 
+    WebDriver driver;
+    ChromeOptions chromeOptions = new ChromeOptions();
+    FirefoxOptions ffOptions = new FirefoxOptions();
+    HashMap<String, Object> ltOptions = new HashMap<>();
+    String iphonePrice;
+
+
+    //Locators --
     By searchBar = By.cssSelector("input#twotabsearchtextbox");
     By searchButtn = By.cssSelector("input#nav-search-submit-button");
     By firstResult = By.cssSelector(".celwidget.s-spacing-small.s-widget-container.s-widget-container-height-small.slot\\=MAIN.template\\=SEARCH_RESULTS.widgetId\\=search-results_1 .a-link-normal.a-text-normal.s-link-style.s-underline-link-text.s-underline-text > .a-color-base.a-size-medium.a-text-normal");
     By options = By.cssSelector("a[title='See All Buying Options']");
     By price = By.cssSelector(".a-price.aok-align-center.centralizedApexPricePriceToPayMargin  .a-price-fraction");
 
-    WebDriver driver;
-    ChromeOptions chromeOptions = new ChromeOptions();
-    FirefoxOptions ffOptions = new FirefoxOptions();
-    HashMap<String, Object> ltOptions = new HashMap<>();
-    String iphonePrice;
 
     @BeforeTest
     public void setUp() {
